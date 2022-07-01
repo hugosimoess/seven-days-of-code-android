@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.portfolio.seven_days_of_code.model.User
 import br.com.portfolio.seven_days_of_code.ui.theme.SevendaysofcodeTheme
+import coil.compose.AsyncImage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,14 +65,15 @@ fun ProfileScreen() {
                 )
                 .height(boxHeight)
         ) {
-            Image(
-                painterResource(id = R.drawable.ic_launcher_foreground),
+            AsyncImage(
+                "https://avatars.githubusercontent.com/u/8989346?v=4",
                 contentDescription = "profile pic",
+                placeholder = painterResource(R.drawable.ic_launcher_foreground),
                 modifier = Modifier
                     .offset(y = imageHeight / 2)
                     .size(imageHeight)
                     .align(Alignment.BottomCenter)
-                    .clip(CircleShape),
+                    .clip(CircleShape)
             )
         }
         Spacer(modifier = Modifier.height(imageHeight / 2))
